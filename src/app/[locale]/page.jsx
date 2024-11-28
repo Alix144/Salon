@@ -66,7 +66,6 @@ export default function HomePage() {
               alt="Salon"
               layout="fill"
               objectFit="contain"
-              className="absolute b-0 left-0"
             />
           </div>
         </div>
@@ -217,16 +216,14 @@ export default function HomePage() {
             {/* <!-- Team Member 3 --> */}
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="bg-gray-300 h-32 w-32 rounded-full mx-auto mb-6 relative overflow-hidden">
-              <Image
-                src="/images/employee3.jpg"
-                alt="Laura Lee"
-                layout="fill"
-                objectFit="cover"
-              />
+                <Image
+                  src="/images/employee3.jpg"
+                  alt="Laura Lee"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800">
-                Laura Lee
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-800">Laura Lee</h3>
               <p className="text-gray-600">Skincare Specialist</p>
             </div>
           </div>
@@ -239,26 +236,52 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">
             Contact Us
           </h2>
-          <form className="max-w-2xl mx-auto space-y-6">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
-            />
-            <textarea
-              placeholder="Your Message"
-              rows="4"
-              className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
-            ></textarea>
-            <button className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-500">
-              Send Message
-            </button>
-          </form>
+          <div className="flex-col md:flex-row flex gap-5 justify-between">
+            <form className="md:w-1/2 max-w-2xl mx-auto space-y-6">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
+              />
+              <textarea
+                placeholder="Your Message"
+                rows="4"
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
+              ></textarea>
+              <button className="w-full bg-blue-200  px-6 py-3 rounded-lg shadow hover:bg-blue-300 duration-200">
+                Send Message
+              </button>
+            </form>
+            <div className="p-5 md:w-1/2 flex flex-col items-center justify-between rounded-lg bg-blue-200">
+              <div className="flex gap-3 justify-between">
+                <Image
+                  src="/images/phone-icon.png"
+                  alt="Phone Icon"
+                  width={25}
+                  height={25}
+                />
+                <p>+965 0000 0000</p>
+              </div>
+              <div>
+                <p className="mb-3 text-center">
+                  Block 4, Hamad Al-Mubarak St, Salmiya, Al Asimah, Kuwait
+                </p>
+                <iframe
+                  className="w-full"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5628.947497786823!2d48.0727458364322!3d29.33998892607675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9d8ea3103d29%3A0x3e5a59e8bdc93cef!2zU2FibMOo!5e1!3m2!1sen!2skw!4v1732820869774!5m2!1sen!2skw"
+                  width="400"
+                  height="200"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
