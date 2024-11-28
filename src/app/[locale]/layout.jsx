@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
-  console.log(locale)
+  
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
     notFound();

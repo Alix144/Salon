@@ -2,6 +2,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import HamburgerBtn from "@/components/HamburgerBtn";
+import sendEmailAction from "../serverActions/sendEmailAction";
+import ContactForm from "@/components/contactForm";
 
 export default function HomePage() {
   const navbar = useTranslations("navbar");
@@ -255,26 +257,7 @@ export default function HomePage() {
             {contactSection("h2")}
           </h2>
           <div className="flex-col md:flex-row flex gap-5 justify-between">
-            <form className="md:w-1/2 max-w-2xl mx-auto space-y-6">
-              <input
-                type="text"
-                placeholder={contactSection("input1")}
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
-              />
-              <input
-                type="email"
-                placeholder={contactSection("input2")}
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
-              />
-              <textarea
-                placeholder={contactSection("input3")}
-                rows="4"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none"
-              ></textarea>
-              <button className="w-full bg-blue-200  px-6 py-3 rounded-lg shadow hover:bg-blue-300 duration-200">
-                {contactSection("btn")}
-              </button>
-            </form>
+            <ContactForm/>
             <div className="p-5 md:w-1/2 flex flex-col items-center justify-between rounded-lg bg-blue-200">
               <div dir="ltr" className="flex gap-3 justify-between">
                 <Image
