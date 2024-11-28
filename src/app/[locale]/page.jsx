@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
+import HamburgerBtn from "@/components/HamburgerBtn";
 
 export default function HomePage() {
   const text = useTranslations("HomePage");
@@ -37,12 +38,12 @@ export default function HomePage() {
             </Link>
           </div>
           {/* <!-- Mobile menu toggle --> */}
-          <button className="md:hidden text-gray-600">☰</button>
+          <HamburgerBtn/>
         </div>
       </nav>
 
       {/* <!-- Hero Section --> */}
-      <section className="bg-gradient-to-r from-pink-200 via-gray-100 to-blue-200">
+      <section className="bg-gradient-to-r from-pink-200 via-gray-100 to-blue-200" id="hero">
         <div className="container mx-auto flex flex-col md:flex-row items-center px-6 py-20 space-y-8 md:space-y-0">
           <div className="text-center md:text-left md:w-1/2">
             <p className="text-gray-600">Salmiya, Kuwait</p>

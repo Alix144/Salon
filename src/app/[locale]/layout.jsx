@@ -16,7 +16,7 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <html lang={locale}>
-      <body>
+      <body className="relative">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
