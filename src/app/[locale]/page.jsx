@@ -3,6 +3,11 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import HamburgerBtn from "@/components/HamburgerBtn";
 
+export const metadata = {
+  title: "Seniora",
+  description: "Discover luxury and elegance at Seniora Salon. We offer personalized beauty services, including haircuts, styling, facials, and more. Book your appointment today to look and feel your best!",
+};
+
 export default function HomePage() {
   const text = useTranslations("HomePage");
   return (
@@ -33,7 +38,13 @@ export default function HomePage() {
             </li>
           </ul>
           <div className="space-x-4 hidden md:flex items-center">
-            <Link href="#" className="text-gray-600 hover:text-black">
+            <Link href="#" className="text-gray-600 hover:text-black flex items-center gap-2">
+            <Image
+              src="/images/world.png"
+              alt="World"
+              width={20}
+              height={20}
+            />
               العربية
             </Link>
           </div>
@@ -61,12 +72,14 @@ export default function HomePage() {
             </div>
           </div>
           {/* <!-- Placeholder for image --> */}
-          <div className="w-full md:w-1/2 h-96 rounded-md relative">
+          <div className=" md:w-1/2 h-96 rounded-md relative flex justify-center">
             <Image
               src="/images/hero-img.png"
               alt="Salon"
-              layout="fill"
-              objectFit="contain"
+              width={600}
+              height={400}
+              className="object-contain"
+              priority
             />
           </div>
         </div>
@@ -131,7 +144,8 @@ export default function HomePage() {
                   src="/images/hair-styling.jpg"
                   alt="Hair Styling"
                   layout="fill"
-                  objectFit="cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-800">
@@ -148,7 +162,8 @@ export default function HomePage() {
                   src="/images/facial-treatments.jpg"
                   alt="Facial Treatments"
                   layout="fill"
-                  objectFit="cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-800">
@@ -165,7 +180,8 @@ export default function HomePage() {
                   src="/images/nail-polish.jpg"
                   alt="Nail Polish"
                   layout="fill"
-                  objectFit="cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-800">Nail Care</h3>
