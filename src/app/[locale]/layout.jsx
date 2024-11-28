@@ -3,8 +3,15 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
+export const metadata = {
+  title: "Seniora",
+  description:
+    "Discover luxury and elegance at Seniora Salon. We offer personalized beauty services, including haircuts, styling, facials, and more. Book your appointment today to look and feel your best!",
+};
+
 export default async function LocaleLayout({ children, params }) {
-    const { locale } = await params;
+  const { locale } = await params;
+  console.log(locale)
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
     notFound();
@@ -15,7 +22,7 @@ export default async function LocaleLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html dir={locale === "ar"? "rtl" : "ltr"} lang={locale}>
       <body className="relative">
         <NextIntlClientProvider messages={messages}>
           {children}

@@ -1,12 +1,19 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 
 const Sidebar = ({ sidebarState, setSidebarState }) => {
+  const navbar = useTranslations("navbar");
+// sidebarState ? "right-0" : "-right-full"
   return (
     <div
       className={`h-screen w-[80%] shadow-md bg-white fixed top-0 ${
-        sidebarState ? "right-0" : "-right-full"
+        navbar("language")==="English"
+        ?
+        (sidebarState ? "left-0" : "-left-full")
+        :
+        (sidebarState ? "right-0" : "-right-full" )
       } z-10 md:hidden duration-200 text-center`}
     >
       <nav>
@@ -21,7 +28,7 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
                 className="text-gray-600 hover:text-black"
                 onClick={() => setSidebarState(false)}
               >
-                About Us
+                {navbar("about")}
               </Link>
             </li>
             <li>
@@ -30,7 +37,7 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
                 className="text-gray-600 hover:text-black"
                 onClick={() => setSidebarState(false)}
               >
-                Services
+                {navbar("services")}
               </Link>
             </li>
             <li>
@@ -39,7 +46,7 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
                 className="text-gray-600 hover:text-black"
                 onClick={() => setSidebarState(false)}
               >
-                Our Team
+                {navbar("team")}
               </Link>
             </li>
             <li>
@@ -48,22 +55,17 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
                 className="text-gray-600 hover:text-black"
                 onClick={() => setSidebarState(false)}
               >
-                Contact
+                {navbar("contact")}
               </Link>
             </li>
           </ul>
           <Link
-            href="#"
+            href={navbar("navigateTo")}
             className="text-gray-600 hover:text-black flex items-center justify-center gap-2"
             onClick={() => setSidebarState(false)}
           >
-            <Image
-              src="/images/world.png"
-              alt="World"
-              width={20}
-              height={20}
-            />
-            العربية
+            <Image src="/images/world.png" alt="World" width={20} height={20} />
+            {navbar("language")}
           </Link>
         </div>
       </nav>
@@ -72,7 +74,7 @@ const Sidebar = ({ sidebarState, setSidebarState }) => {
         alt="Close Icon"
         width={20}
         height={20}
-        className="absolute top-5 right-5"
+        className={`absolute ${navbar("language") === "English" ? "left-5" : "right-5"} top-5`}
         onClick={() => setSidebarState(false)}
       />
     </div>

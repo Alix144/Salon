@@ -1,6 +1,52 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "metadata": {
+    "title": "Seniora",
+    "description": "Discover luxury and elegance at Seniora Salon. We offer personalized beauty services, including haircuts, styling, facials, and more. Book your appointment today to look and feel your best!"
+  },
+  "navbar": {
+    "about": "About Us",
+    "services": "Services",
+    "team": "Our Team",
+    "contact": "Contact",
+    "language": "العربية",
+    "navigateTo": "ar"
+  },
+  "heroSection": {
+    "address": "Salmiya, Kuwait",
+    "h1": "All for the sake of your",
+    "span": "beauty",
+    "btn": "Book Now"
+  },
+  "aboutSection": {
+    "h2": "About Us",
+    "p": "At Seniora, we believe beauty is an art. Our expert team is dedicated to enhancing your natural glow with personalized care and premium services. From stunning hairstyles to rejuvenating treatments, we ensure every visit leaves you feeling confident and radiant.",
+    "clients": "Satisfied Clients",
+    "experience": "Years Of Experience"
+  },
+  "servicesSection": {
+    "h2": "Our Services",
+    "h3Service1": "Hair Styling",
+    "pService1": "Get a perfect hairstyle tailored just for you.",
+    "h3Service2": "Facial Treatments",
+    "pService2": "Refresh and rejuvenate your skin with our facials.",
+    "h3Service3": "Nail Care",
+    "pService3": "Stunning nail art and treatments for your hands."
+  },
+  "teamSection": {
+    "h2": "Meet Our Team",
+    "p1": "Senior Hair Stylist",
+    "p2": "Nail Artist",
+    "p3": "Skincare Specialist"
+  },
+  "contactSection": {
+    "h2": "Contact Us",
+    "input1": "Your Name",
+    "input2": "Your Email",
+    "input3": "Your Message",
+    "btn": "Send Message",
+    "address": "Block 4, Hamad Al-Mubarak St, Salmiya, Al Asimah, Kuwait"
+  },
+  "footer": {
+    "p": "C&copy; 2024 Seniora Salon. All rights reserved."
   }
 }
