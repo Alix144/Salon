@@ -48,5 +48,9 @@
   },
   "footer": {
     "p": "C&copy; 2024 Seniora Salon. All rights reserved."
+  },
+  "toastDiv": {
+    "error": "Please fill all the fields!",
+    "success": "Message sent successfuly!"
   }
 }

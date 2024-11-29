@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 
 const ContactForm = () => {
   const contactSection = useTranslations("contactSection");
+  const toastDiv = useTranslations("toastDiv");
+  const navbar = useTranslations("navbar");
+  const language = navbar("language");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,20 +16,32 @@ const ContactForm = () => {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const sendEmail = async (formData) => {
+  const sendEmail = async (e) => {
+    e.preventDefault()
+
     setError("");
     setSuccess("");
     setLoading(true);
+
     if (name === "" || email === "" || message === "") {
-      setError("Please fill all the fields!");
+      setError(toastDiv("error"));
     } else {
       try {
-        const response = await sendEmailAction(formData);
-        setSuccess("Email sent successfuly!");
-        setName("");
-        setEmail("");
-        setMessage("");
+        const response = await fetch("/api/send/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+          }),
+        });
+        setSuccess(toastDiv("success"))
+        setName("")
+        setEmail("")
+        setMessage("")
       } catch (error) {
+        console.log(error);
         setError(error);
       }
     }
@@ -48,7 +63,7 @@ const ContactForm = () => {
   }, [error, success]);
 
   return (
-    <form action={sendEmail} className="md:w-1/2 max-w-2xl mx-auto space-y-6">
+    <form className="md:w-1/2 max-w-2xl mx-auto space-y-6">
       <input
         type="text"
         name="name"
@@ -82,22 +97,22 @@ const ContactForm = () => {
         </button>
       ) : (
         <button
-          type="submit"
           className="w-full bg-blue-200  px-6 py-3 rounded-lg shadow hover:bg-blue-300 duration-200"
           disabled={loading}
+          onClick={(e)=>sendEmail(e)}
         >
           {contactSection("btn")}
         </button>
       )}
 
       {error && (
-        <div className="px-5 py-3 w-56 fixed rounded-lg bottom-5 right-5 bg-red-400 text-white border border-red-600">
+        <div className={`px-10 py-3 fixed rounded-lg bottom-5 ${language === "English" ? "right-5" : "left-5"} bg-red-400 text-white border border-red-600 text-center`}>
           <p>{error}</p>
         </div>
       )}
 
       {success && (
-        <div className="px-5 py-3 w-56 fixed rounded-lg bottom-5 right-5 bg-green-300 text-black border border-green-600">
+        <div className={`px-10 py-3 fixed rounded-lg bottom-5 ${language === "English" ? "right-5" : "left-5"} bg-green-300 text-black border border-green-600 text-center`}>
           <p>{success}</p>
         </div>
       )}
